@@ -2,7 +2,7 @@
 
 int main()
 {
-	printf("I love Programming!");
+	printf("My 3rd");
 
 	return 0;
 }     
