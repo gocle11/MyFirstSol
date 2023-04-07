@@ -2,7 +2,18 @@
 
 int main()
 {
-	printf("My 3rd");
+	/*
+	
+	*/
+	int a = 1;
+	int b = 2;
+	int c = a + b;
+
+
+
+	printf("c =  %i \n",c);
+
+	printf("c = %d", c );
 
 	return 0;
 }     
