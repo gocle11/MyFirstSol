@@ -13,6 +13,8 @@ int main()
 
 	printf("c =  %i \n",c);
 
+
+
 	printf("c = %d", c );
 
 	return 0;
