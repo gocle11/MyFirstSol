@@ -5,9 +5,65 @@
 #define MAX_AUTHOR 40
 #define MAX_BOOK 3
 
+char* s_gets(char* st, int n) {
+	char* ret_val;
+	char* find;
+
+	ret_val = fgets(st, n, stdin);
+	if (ret_val) {
+		find = strchr(st, '\n');
+		if(find) {
+			*find = '\0';
+		}else{
+			while (getchar() != '\n') {
+				continue;
+			}
+		}
+	}
+}
+
+struct book {
+	char title[MAX_TITLE];
+	char author[MAX_AUTHOR];
+	float price;
+};
+
 int main()
 {
-	printf("Hello, World!");
+	struct book library[MAX_BOOK];
+
+	int count = 0;
+
+	while (1) {
+		printf("Input a  book title or press [Enter] to stop \n");
+		if (s_gets(library[count].title, MAX_TITLE) == NULL) break;
+		if (library[count].title[0] == '\0') break;
+
+		printf("Input the author \n");
+		s_gets(library[count].author, MAX_AUTHOR);
+
+		printf("Input the price \n");
+		int flag = scanf("%f", &library[count].price);
+		while (getchar() != '\n')
+			continue;
+
+		count++;
+
+		if (count == MAX_BOOK) {
+			printf("no more books\n");
+			break;
+		}
+	}
+
+	if (count > 0) {
+		printf("\nThe list of books : \n");
+		for (int index = 0; index < count; index++) {
+			printf("%s written by %s : $%.1f\n", library[index].title, library[index].author, library[index].price);
+		}
+	}
+	else {
+		printf("no book");
+	}
 
 	return 0;
 }     
